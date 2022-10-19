@@ -43,9 +43,19 @@
             <%= link_to 'About Us', about_index_path, class: "nav-link"%>
             </li>
             <% if current_user %>
-              Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+            <li class="nav-item nav-link">
+              Signed in as <%= current_user.name %>  
+            </li>
+            <li class="nav-item">
+              <%= link_to "Logout", '/logout', class: "nav-link"%>
+            </li>
             <% else %>
-              <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+            <li class="nav-item">
+              <%= link_to 'Login', '/login', class: "nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Signup', '/signup', class: "nav-link"%>
+            </li>
             <% end %>
           <%# </ul>
         </li> %>
