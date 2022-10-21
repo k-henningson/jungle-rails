@@ -4,7 +4,9 @@
     <h1>My Cart</h1>
   </header>
   <% if enhanced_cart.length == 0 %>
+  <div class="alert alert-info" role="alert">
     <h1>Your cart is empty!</h1>
+  </div>
     <%= link_to 'Back', root_path%>
   <% else %>
   <div class="panel panel-default items">
