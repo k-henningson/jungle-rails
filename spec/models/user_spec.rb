@@ -65,4 +65,13 @@ RSpec.describe User, type: :model do
 
   end
 
+    describe '.authenticate_with_credentials' do
+      # examples for this class method here
+      it "will verify user created is same as user logging in" do
+        @user = User.create(name: "Kyra", email: "test@test.com", password: "testpassword", password_confirmation: "testpassword")
+        @user = User.authenticate_with_credentials("test@test.com", "testpassword")
+        expect(@user).to be_truthy
+      end
+    end
+
 end
