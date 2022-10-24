@@ -39,6 +39,30 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Password confirmation can't be blank")
     end
 
+
+    it "will fail when password and password confirmation do not match" do 
+      @user = User.new(name: "James", email: "hello@example.com", password: "123", password_confirmation: "456")
+      @user.save
+      puts @user.errors.full_messages
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
+
+    it "will fail when email is not unique" do 
+      @user1 = User.new(name: "James", email: "hello@example.com", password: "123", password_confirmation: "123")
+      @user1.save
+      @user2 = User.new(name: "James", email: "hello@example.com", password: "123", password_confirmation: "123")
+      @user2.save
+      puts @user2.errors.full_messages
+      expect(@user2.errors.full_messages).to include("Email has already been taken")
+    end
+
+    it "will fail when password is not at least 2 characters" do 
+      @user = User.new(name: "James", email: "hello@example.com", password: "1", password_confirmation: "1")
+      @user.save
+      puts @user.errors.full_messages
+      expect(@user.errors.full_messages).to include("Password is too short (minimum is 2 characters)")
+    end
+
   end
 
 end
