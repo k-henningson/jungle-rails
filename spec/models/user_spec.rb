@@ -24,6 +24,21 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Email can't be blank")
     end
 
+    it "will fail when password is not present" do 
+      @user = User.new(name: "James", email: "hello@example.com", password_confirmation: "123")
+      @user.save
+      puts @user.errors.full_messages
+      expect(@user.errors.full_messages).to include("Password can't be blank")
+    end
+
+
+    it "will fail when password confirmation is not present" do 
+      @user = User.new(name: "James", email: "hello@example.com", password: "123")
+      @user.save
+      puts @user.errors.full_messages
+      expect(@user.errors.full_messages).to include("Password confirmation can't be blank")
+    end
+
   end
 
 end
