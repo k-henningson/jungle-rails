@@ -21,7 +21,7 @@ RSpec.describe Product, type: :model do
 
     it "will fail when quantity is not present" do 
       @category = Category.new
-      @product = Product.new(name: , price: , quantity: , category: )
+      @product = Product.new(name: "Kyra", price: 1000, quantity: nil, category: @category)
     end
 
     it "will fail when category is not present" do 
