@@ -4,13 +4,13 @@ A mini e-commerce application built with Rails 6.1.
 
 ## Final Product
 
-![""]()
+!["Header"](https://github.com/k-henningson/jungle-rails/blob/master/docs/Header.png?raw=true)
 <br/><br/>
-![""]()
+!["Products"](https://github.com/k-henningson/jungle-rails/blob/master/docs/Products.png?raw=true)
 <br/><br/>
-![""]()
+!["My Cart"](https://github.com/k-henningson/jungle-rails/blob/master/docs/Cart.png?raw=true)
 <br/><br/>
-![""]()
+!["Order"](https://github.com/k-henningson/jungle-rails/blob/master/docs/Order.png?raw=true)
 
 ## Setup
 
