@@ -72,6 +72,18 @@ RSpec.describe User, type: :model do
         @user = User.authenticate_with_credentials("test@test.com", "testpassword")
         expect(@user).to be_truthy
       end
+
+      it "will validate with spaces before or after valid email" do
+        @user = User.create(name: "Kyra", email: "test@test.com", password: "testpassword", password_confirmation: "testpassword")
+        @user = User.authenticate_with_credentials("  test@test.com  ", "testpassword")
+        expect(@user).to be_truthy
+      end
+
+      it "will validate with upper and lower case types" do
+        @user = User.create(name: "Kyra", email: "test@test.com", password: "testpassword", password_confirmation: "testpassword")
+        @user = User.authenticate_with_credentials("test@TEST.com", "testpassword")
+        expect(@user).to be_truthy
+      end
     end
 
 end
